@@ -22,9 +22,15 @@ public class AdminService {
         return adminMapper.findAll();
     }
 
+
+    // lottoNumber 테이블 회원 정보 삭제 메서드: 회원 고유 ID 를 인자로 받아서 해당 ID를 가진 사용자를 삭제
+    public int deleteFromLottoNumber(Integer id) {
+        return adminMapper.deleteFromLottoNumber(id);
+    }
+
     // 회원 정보 삭제 메서드: 회원 고유 ID 를 인자로 받아서 해당 ID를 가진 사용자를 삭제
-    public int delete(Integer id) {
-        return adminMapper.delete(id);
+    public int deleteFromUser(Integer id) {
+        return adminMapper.deleteFromUser(id);
     }
 
     // 회원 탈퇴 유저 저장 메서드: 회원 고유 ID 를 인자로 받아 해당 ID를 가진 탈퇴 예정 사용자를 outUser Table 에 저장

@@ -76,7 +76,7 @@
     <script>
         function deleteUser(userId) {
             if (confirm("정말로 회원 탈퇴 하시겠습니까?")) {
-                window.location.href = "/user/delete/" + encodeURIComponent(userId);
+                window.location.href = "/admin/delete/" + encodeURIComponent(userId);
             }
         }
     </script>

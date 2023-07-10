@@ -12,8 +12,12 @@ public interface AdminMapper {
     // 회원 정보 전체 찾기 메서드: 전체 사용자를 검색하고 반환
     List<User> findAll();
 
+    // lottoNumber 테이블 회원 정보 삭제 메서드: 사용자 고유 ID 를 인자로 받아 해당 ID 를 가진 사용자를 삭제
+    int deleteFromLottoNumber(Integer id);
+
     // 회원 정보 삭제 메서드: 사용자 고유 ID 를 인자로 받아 해당 ID 를 가진 사용자를 삭제
-    int delete(Integer id);
+    int deleteFromUser(Integer id);
+
 
     // 회원 탈퇴 사용자 정보 저장 메서드: email 주소를 인자로 받아 해당 이메일을 가진 사용자를 outUser 테이블에 저장
     int outUserSave(Integer id);

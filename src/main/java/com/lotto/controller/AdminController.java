@@ -48,17 +48,20 @@ public class AdminController {
             ModelAndView mav,
             @PathVariable("id") Integer id
     ) {
-        // 세션에서 사용자 email 을 가져와 email 에 저장
 
         List<User> userList = adminService.findAll();
         mav.addObject("userList", userList);
-        // userService.outUserSave(email)를 호출하여 탈퇴 회원 데이터베이스에 저장
+
+        // userService.outUserSave(id)를 호출하여 탈퇴 회원 데이터베이스에 저장
         adminService.outUserSave(id);
 
-        // userService.delete(email)를 호출하여 회원가입 처리 및 세션 무효화
-        adminService.delete(id);
+        // userService.deleteFromLottoNumber(id)를 호출하여 lottoNumber 테이블 유저 삭제
+        adminService.deleteFromLottoNumber(id);
 
-        mav.setViewName("redirect:/admin/main");
+        // userService.delete(email)를 호출하여 유저 삭제
+        adminService.deleteFromUser(id);
+
+        mav.setViewName("redirect:/admin/adminDelete");
         return mav;
     }
 

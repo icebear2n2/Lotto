@@ -10,8 +10,12 @@
         select * from user
     </select>
 
+    <update id="deleteFromLottoNumber">
+        delete from lottoNumber where email = (select email from user where id = #{id})
+    </update>
+
     <!-- 회원 정보 삭제 쿼리-->
-    <update id="delete">
+    <update id="deleteFromUser">
         delete from user where id = #{id}
     </update>
 
